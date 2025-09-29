@@ -7,47 +7,15 @@
     typing: document.getElementById('typing'),
     form: document.getElementById('composer'),
     input: document.getElementById('input'),
-    chips: document.getElementById('chips'),
-    env: document.getElementById('envLabel'),
-    btnSettings: document.getElementById('btnSettings'),
-    settings: document.getElementById('settingsPanel'),
-    apiUrlInput: document.getElementById('apiUrlInput'),
-    sessionInput: document.getElementById('sessionInput'),
-    saveSettings: document.getElementById('saveSettings'),
-    closeSettings: document.getElementById('closeSettings')
+    chips: document.getElementById('chips')
   };
 
   const state = {
-    apiUrl: localStorage.getItem('apiUrl') || '',
+    apiUrl: 'https://your-api-gateway-url.amazonaws.com/chat', // Set your API URL here
     sessionId: localStorage.getItem('sessionId') || (self.crypto?.randomUUID ? crypto.randomUUID() : String(Date.now())),
     sending: false
   };
   localStorage.setItem('sessionId', state.sessionId);
-
-  function setEnvLabel(){
-    el.env.textContent = 'API: ' + (state.apiUrl || 'unset');
-  }
-
-  function showSettings(show){
-    el.settings.classList.toggle('hidden', !show);
-    if(show){
-      el.apiUrlInput.value = state.apiUrl;
-      el.sessionInput.value = state.sessionId;
-      el.apiUrlInput.focus();
-    }
-  }
-
-  el.btnSettings.addEventListener('click', ()=> showSettings(true));
-  el.closeSettings.addEventListener('click', ()=> showSettings(false));
-  el.saveSettings.addEventListener('click', ()=> {
-    state.apiUrl = (el.apiUrlInput.value || '').trim();
-    localStorage.setItem('apiUrl', state.apiUrl);
-    setEnvLabel();
-    showSettings(false);
-    toast('Saved API URL');
-  });
-
-  setEnvLabel();
 
   // Quick intent chips tailored to campus scenarios
   const suggestions = [
@@ -114,10 +82,6 @@
 
   async function send(q){
     if(state.sending) return;
-    if(!state.apiUrl){
-      showSettings(true);
-      return;
-    }
     state.sending = true;
     userSay(q);
     el.input.value = '';
@@ -146,7 +110,7 @@
         botSay("I’m here. Your backend replied but I couldn’t read the message shape.");
       }
     }catch(err){
-      botSay("Hmm, I couldn’t reach the backend. Please check the API URL in settings.");
+      botSay("Hmm, I couldn't get the response. Please try again later.");
       console.error(err);
     }finally{
       showTyping(false);

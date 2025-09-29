@@ -10,31 +10,12 @@
 <body>
 <header class="app-header">
   <div class="brand">
-    <div class="badge">UM‑D</div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Michigan_Wolverines_Block_M.png/800px-Michigan_Wolverines_Block_M.png?20150520011101" alt="University of Michigan" class="logo">
     <h1>Campus Services Link Router</h1>
-  </div>
-  <div class="status">
-    <span id="envLabel">API: unset</span>
-    <button id="btnSettings" class="icon" title="Settings" aria-label="Open settings">⚙️</button>
-  </div>
+
 </header>
 
-<div id="settingsPanel" class="settings hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-  <div class="settings-card">
-    <h2 id="settingsTitle">Project Settings</h2>
-    <label>API Gateway URL
-      <input id="apiUrlInput" type="url" placeholder="https://abc123.execute-api.us-east-1.amazonaws.com/chat">
-    </label>
-    <label>Session ID
-      <input id="sessionInput" type="text" readonly>
-    </label>
-    <div class="settings-actions">
-      <button id="saveSettings" class="btn primary">Save</button>
-      <button id="closeSettings" class="btn">Close</button>
-    </div>
-    <p class="hint">Tip: this page is static (S3). Only the API URL is needed to connect your backend.</p>
-  </div>
-</div>
+
 
 <main class="app">
   <section class="hero">
