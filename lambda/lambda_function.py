@@ -15,4 +15,5 @@ def lambda_handler(event, _ctx):
             "Content-Type": "application/json"
         },
         "body": json.dumps({"messages":[{"text": f"Bot: {q}"}]})
+        # body
     }
