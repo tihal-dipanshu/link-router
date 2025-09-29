@@ -11,7 +11,7 @@
   };
 
   const state = {
-    apiUrl: 'https://your-api-gateway-url.amazonaws.com/chat', // Set your API URL here
+    apiUrl: localStorage.getItem('apiUrl') || '',
     sessionId: localStorage.getItem('sessionId') || (self.crypto?.randomUUID ? crypto.randomUUID() : String(Date.now())),
     sending: false
   };
