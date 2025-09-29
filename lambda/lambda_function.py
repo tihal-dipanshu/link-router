@@ -14,5 +14,5 @@ def lambda_handler(event, _ctx):
             "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json"
         },
-        "body": json.dumps({"messages":[{"text": f"ECHO: {q}"}]})
+        "body": json.dumps({"messages":[{"text": f"Bot: {q}"}]})
     }
