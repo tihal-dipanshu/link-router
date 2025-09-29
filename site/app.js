@@ -10,8 +10,10 @@
     chips: document.getElementById('chips')
   };
 
+  const API_URL = 'https://jp8o7k9m1c.execute-api.us-east-2.amazonaws.com/chat';
+  
   const state = {
-    apiUrl: localStorage.getItem('apiUrl') || '',
+    apiUrl: localStorage.getItem('apiUrl') || API_URL,
     sessionId: localStorage.getItem('sessionId') || (self.crypto?.randomUUID ? crypto.randomUUID() : String(Date.now())),
     sending: false
   };
@@ -86,16 +88,31 @@
     userSay(q);
     el.input.value = '';
     showTyping(true);
+    
+    // Debug logging
+    console.log('Sending request to:', state.apiUrl);
+    console.log('Request payload:', { q, sessionId: state.sessionId });
+    
     try{
       const r = await fetch(state.apiUrl, {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({ q, sessionId: state.sessionId })
       });
+      
+      console.log('Response status:', r.status);
+      console.log('Response headers:', Object.fromEntries(r.headers.entries()));
+      
       if(!r.ok){
-        throw new Error('HTTP '+r.status);
+        throw new Error(`HTTP ${r.status}: ${r.statusText}`);
       }
+      
       const data = await r.json();
+      console.log('Response data:', data);
+      
       const messages = (data.messages || data.results || []);
       if(Array.isArray(messages) && messages.length){
         messages.forEach(m => botSay(m.text || m.content || String(m)));
@@ -107,11 +124,17 @@
           botSay(String(data.body));
         }
       }else{
-        botSay("I’m here. Your backend replied but I couldn’t read the message shape.");
+        botSay("I'm here. Your backend replied but I couldn't read the message shape.");
       }
     }catch(err){
-      botSay("Hmm, I couldn't get the response. Please try again later.");
-      console.error(err);
+      console.error('Fetch error:', err);
+      if(err.name === 'TypeError' && err.message.includes('fetch')){
+        botSay("Network error: Unable to connect to the server. Please check your internet connection and try again.");
+      }else if(err.message.includes('CORS')){
+        botSay("CORS error: The server is not allowing requests from this domain. Please contact the administrator.");
+      }else{
+        botSay(`Error: ${err.message}. Please try again later.`);
+      }
     }finally{
       showTyping(false);
       state.sending = false;
