@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2a4a">
+  <title>UM‑Dearborn Link Router</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="brand">
+    <div class="badge">UM‑D</div>
+    <h1>Campus Services Link Router</h1>
+  </div>
+  <div class="status">
+    <span id="envLabel">API: unset</span>
+    <button id="btnSettings" class="icon" title="Settings" aria-label="Open settings">⚙️</button>
+  </div>
+</header>
+
+<div id="settingsPanel" class="settings hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="settings-card">
+    <h2 id="settingsTitle">Project Settings</h2>
+    <label>API Gateway URL
+      <input id="apiUrlInput" type="url" placeholder="https://abc123.execute-api.us-east-1.amazonaws.com/chat">
+    </label>
+    <label>Session ID
+      <input id="sessionInput" type="text" readonly>
+    </label>
+    <div class="settings-actions">
+      <button id="saveSettings" class="btn primary">Save</button>
+      <button id="closeSettings" class="btn">Close</button>
+    </div>
+    <p class="hint">Tip: this page is static (S3). Only the API URL is needed to connect your backend.</p>
+  </div>
+</div>
+
+<main class="app">
+  <section class="hero">
+    <h2>Find the <em>official</em> page faster</h2>
+    <p>Ask in your own words and get the exact UM‑Dearborn link. No fluff—just the page you need.</p>
+    <div id="chips" class="chips"></div>
+  </section>
+
+  <section class="chat" id="chat">
+    <div id="messages" class="messages" aria-live="polite"></div>
+    <div id="typing" class="typing hidden"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <form id="composer" class="composer" autocomplete="off">
+      <textarea id="input" rows="1" placeholder="Try: parking permit • order transcript • reset Canvas password"></textarea>
+      <button id="send" class="btn primary" type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <small>Scope: official UM‑Dearborn pages only • Last updated: 2025-09-28</small>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

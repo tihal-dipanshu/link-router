@@ -1,0 +1,22 @@
+name: Deploy LF0 Lambda
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'lambda/**'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: zip -j function.zip lambda/handler.py
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Update function code
+        run: |
+          aws lambda update-function-code \
+            --function-name "${{ secrets.LF0_FUNCTION }}" \
+            --zip-file fileb://function.zip
