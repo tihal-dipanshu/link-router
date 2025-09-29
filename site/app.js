@@ -33,7 +33,7 @@
   });
 
   // Welcome message
-  botSay("Welcome! Ask for the page you need—I'll return the official UM‑Dearborn link. Try the shortcuts above to start.");
+  botSay("Welcome! Ask for the page you need & I'll return the official UM‑Dearborn link. Try the shortcuts above to start.");
 
   // Form handling
   el.form.addEventListener('submit', (e)=>{
