@@ -1,4 +1,125 @@
-/* UM‑Dearborn Link Router — clean S3-deployable UI */
+/* UM-Dearborn Link Router — clean S3-deployable UI */
+:root{
+  --blue:#0b2a4a;
+  --blue-700:#0d3b66;
+  --maize:#ffcb05;
+  --ink:#0f172a;
+  --muted:#6b7280;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --ring:#e5e7eb;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ink);
+  background:linear-gradient(180deg,#f0f4f8 0%, #fff 40%);
+}
+
+/* Header */
+.app-header{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;
+  padding:.9rem 1rem;border-bottom:1px solid var(--ring);
+  background:linear-gradient(90deg,var(--blue) 0%, var(--blue-700) 100%);
+  color:#fff;
+}
+.brand{display:flex;align-items:center;gap:.8rem}
+.logo{height:40px;width:auto;object-fit:contain}
+h1{font-size:1.2rem;margin:0}
+
+/* Buttons */
+.btn{padding:.6rem 1rem;border-radius:.7rem;border:1px solid var(--ring);background:#f4f4f5;cursor:pointer}
+.btn.primary{background:var(--maize);border-color:#e8b800}
+
+/* Layout */
+.app{max-width:960px;margin:0 auto;padding:1.25rem 1rem}
+.hero{padding:1rem .5rem 0}
+.hero h2{margin:.2rem 0 .4rem;font-size:1.6rem}
+.hero p{color:var(--muted);margin:.2rem 0 1rem}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chips button{
+  border:1px solid var(--ring);background:#fff;color:#111;
+  padding:.45rem .7rem;border-radius:999px;cursor:pointer
+}
+.chips button:hover{background:#f8fafc}
+
+/* Chat container */
+.chat{
+  margin:1.25rem 0;background:var(--card);border:1px solid var(--ring);
+  border-radius:1.1rem;box-shadow:0 10px 25px rgba(10,38,64,.05)
+}
+.messages{
+  padding:1.1rem 1.1rem 0;
+  height:min(60vh,540px);
+  overflow:auto;scrollbar-width:thin
+}
+
+/* Message rows & bubbles */
+.row{display:flex;gap:.75rem;align-items:flex-end;margin:1rem 0}
+.row.me{justify-content:flex-end}
+.bubble{
+  max-width:min(72%,680px);
+  padding:0.9rem 1rem;
+  border-radius:1rem;
+  border:1px solid var(--ring);
+  background:#f8fafc;
+  line-height:1.55;
+}
+.row.me .bubble{background:#e7f0ff;border-color:#c6dafc}
+
+/* Typing dots */
+.typing{display:flex;gap:.25rem;padding:0 1rem 1rem}
+.hidden{display:none}
+.dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;animation:b 1.2s infinite}
+.dot:nth-child(2){animation-delay:.15s}.dot:nth-child(3){animation-delay:.3s}
+@keyframes b{0%{opacity:.2}50%{opacity:1}100%{opacity:.2}}
+
+/* Composer */
+.composer{display:flex;gap:.6rem;padding:.85rem;border-top:1px solid var(--ring)}
+#input{
+  flex:1;resize:none;padding:.8rem .9rem;border-radius:.8rem;border:1px solid var(--ring);
+  outline:none;min-height:44px;max-height:140px
+}
+#send{min-width:92px}
+
+/* Link cards (pretty results) */
+.list-heading{font-weight:650;margin:0 0 .5rem .05rem}
+.link-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem}
+.link-item{
+  padding:.9rem .95rem .8rem;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:12px;
+  background:#fff;
+}
+.link-primary{
+  display:inline-block;
+  font-weight:600;
+  color:#0b2a4a;
+  text-decoration:none;
+  margin-bottom:.25rem;
+}
+.link-primary:hover{text-decoration:underline}
+.link-desc{opacity:.9;font-size:.95rem}
+
+/* Footer */
+.app-footer{padding:1rem 1.25rem;color:var(--muted);text-align:center}
+
+/* Small screens */
+@media (max-width:640px){
+  .messages{height:56vh}
+  #send{min-width:82px}
+  .bubble{max-width:86%}
+}
+
+
+
+UM‑Dearborn Link Router — clean S3-deployable UI
 :root{
   --blue:#0b2a4a;
   --blue-700:#0d3b66;

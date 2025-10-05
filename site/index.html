@@ -4,6 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b2a4a">
+  <title>UM-Dearborn Link Router</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="brand">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Michigan_Wolverines_Block_M.png/800px-Michigan_Wolverines_Block_M.png?20150520011101"
+         alt="University of Michigan" class="logo">
+    <h1>Campus Services Link Router</h1>
+  </div>
+</header>
+
+<main class="app">
+  <section class="hero">
+    <h2>Find the <em>official</em> page faster</h2>
+    <p>Ask in your own words and get the exact UM-Dearborn link. No fluff — just the page you need.</p>
+    <div id="chips" class="chips"></div>
+  </section>
+
+  <section class="chat" id="chat">
+    <div id="messages" class="messages" aria-live="polite"></div>
+    <div id="typing" class="typing hidden">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <form id="composer" class="composer" autocomplete="off">
+      <textarea id="input" rows="1" placeholder="Try: parking permit • order transcript • reset Canvas password"></textarea>
+      <button id="send" class="btn primary" type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <small>Scope: official UM-Dearborn pages only • Last updated: 2025-09-28</small>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
+
+
+<!-- <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2a4a">
   <title>UM‑Dearborn Link Router</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -40,4 +86,4 @@
 
 <script src="app.js"></script>
 </body>
-</html>
+</html> -->
