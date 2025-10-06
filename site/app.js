@@ -25,8 +25,8 @@
     {q:'parking permit', label:'Parking Permit'},
     {q:'order official transcript', label:'Order Transcript'},
     {q:'reset Canvas password', label:'Canvas Password'},
-    {q:'library hours', label:'Library Hours'},
-    {q:'financial aid forms', label:'Financial Aid'},
+    // {q:'library hours', label:'Library Hours'},
+    // {q:'financial aid forms', label:'Financial Aid'},
   ];
   suggestions.forEach(s=>{
     const b = document.createElement('button');
