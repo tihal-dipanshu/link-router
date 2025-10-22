@@ -37,17 +37,17 @@
     { q: 'financial aid fafsa',           label: 'FAFSA & Financial Aid' },
     { q: 'advising appointment',          label: 'Academic Advising' },
     { q: 'shuttle schedule',              label: 'Shuttle Schedule' },
-    { q: 'dining options',                label: 'Dining Options' },
-    { q: 'library hours',                 label: 'Library Hours' },
+    // { q: 'dining options',                label: 'Dining Options' },
+    // { q: 'library hours',                 label: 'Library Hours' },
     { q: 'career services handshake',     label: 'Career & Handshake' },
     { q: 'tuition payment',               label: 'Tuition Payment' },
     { q: 'campus events today',           label: 'Campus Events' },
     { q: 'counseling support',            label: 'Counseling Support' },
-    { q: 'mcard replacement',             label: 'ID Card (Mcard)' },
+    // { q: 'mcard replacement',             label: 'ID Card (Mcard)' },
     { q: 'emergency contacts',            label: 'Emergency Contacts' },
-    { q: 'canvas help',                   label: 'Canvas Help' },
-    { q: 'wifi setup',                    label: 'Wi-Fi Setup' },
-    { q: 'registrar forms',               label: 'Registrar Forms' },
+    // { q: 'canvas help',                   label: 'Canvas Help' },
+    // { q: 'wifi setup',                    label: 'Wi-Fi Setup' },
+    // { q: 'registrar forms',               label: 'Registrar Forms' },
   ];
   
   suggestions.forEach(s=>{
