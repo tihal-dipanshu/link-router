@@ -21,13 +21,35 @@
   localStorage.setItem('sessionId', state.sessionId);
 
   // Quick intent chips tailored to campus scenarios
+  // const suggestions = [
+  //   {q:'parking permit', label:'Parking Permit'},
+  //   {q:'order official transcript', label:'Order Transcript'},
+  //   {q:'reset Canvas password', label:'Canvas Password'},
+  //   // {q:'library hours', label:'Library Hours'},
+  //   // {q:'financial aid forms', label:'Financial Aid'},
+  // ];
   const suggestions = [
-    {q:'parking permit', label:'Parking Permit'},
-    {q:'order official transcript', label:'Order Transcript'},
-    {q:'reset Canvas password', label:'Canvas Password'},
-    // {q:'library hours', label:'Library Hours'},
-    // {q:'financial aid forms', label:'Financial Aid'},
+    { q: 'parking permit',                label: 'Parking Permit' },
+    { q: 'order official transcript',     label: 'Order Transcript' },
+    { q: 'reset Canvas password',         label: 'Canvas Password' },
+  
+    { q: 'course registration',           label: 'Course Registration' },
+    { q: 'financial aid fafsa',           label: 'FAFSA & Financial Aid' },
+    { q: 'advising appointment',          label: 'Academic Advising' },
+    { q: 'shuttle schedule',              label: 'Shuttle Schedule' },
+    { q: 'dining options',                label: 'Dining Options' },
+    { q: 'library hours',                 label: 'Library Hours' },
+    { q: 'career services handshake',     label: 'Career & Handshake' },
+    { q: 'tuition payment',               label: 'Tuition Payment' },
+    { q: 'campus events today',           label: 'Campus Events' },
+    { q: 'counseling support',            label: 'Counseling Support' },
+    { q: 'mcard replacement',             label: 'ID Card (Mcard)' },
+    { q: 'emergency contacts',            label: 'Emergency Contacts' },
+    { q: 'canvas help',                   label: 'Canvas Help' },
+    { q: 'wifi setup',                    label: 'Wi-Fi Setup' },
+    { q: 'registrar forms',               label: 'Registrar Forms' },
   ];
+  
   suggestions.forEach(s=>{
     const b = document.createElement('button');
     b.className = 'chip';
